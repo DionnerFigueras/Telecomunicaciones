@@ -1,23 +1,16 @@
 <footer>
-    <div class="presentacion">
-        <p>
-            Pagina Desarrollada por: <br />
-            Alejandro Caraballo. CI: 30.040.746. <br />
-            Dionner Figueras. CI: 28.561.983.
-        </p>
-    </div>
 
     <div class="titulo">TELECOMUNICACIONES</div>
 
-    <div class="contacto">
-        <p>Informacion de contacto:</p>
+    <div class="presentacion">
         <p>
-            Correo electronico: <a href="mailto:alejandrojcb62001@gmail.com">alejandrojcb62001@gmail.com</a>
-        </p>
-        <p>
-            Correo electronico: <a href="mailto:dionnerfigi79@gmail.com">dionnerfigi79@gmail.com</a>
+            Pagina Desarrollada por: <br />
+            <a href="mailto:alejandrojcb62001@gmail.com">Alejandro Caraballo.</a>  CI: 30.040.746. <br />
+            <a href="mailto:dionnerfigi79@gmail.com">Dionner Figueras.</a>  CI: 28.561.983.
         </p>
     </div>
+
+
 </footer>
 
 <style>
@@ -28,6 +21,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column
     }
 
     div {
@@ -35,31 +29,17 @@
         text-align: center;
     }
 
-    .presentacion {
-        flex: 1 1 0;
-    }
-
-    .presentacion p {
-        font-size: 18px;
-    }
-
     .titulo {
-        flex: 3 3 0;
-        font-size: 38px;
+        font-size: 30px;
         font-weight: bold;
     }
 
-    .contacto {
-        flex: 1 1 0;
-    }
-
-    .contacto p, .contacto p {
+    .presentacion {
         font-size: 18px;
     }
 
-    .contacto p a{
+    .presentacion p a{
+        color: #79ee6e;
         text-decoration: none;
-        color: #4ecf16;
     }
-
 </style>
