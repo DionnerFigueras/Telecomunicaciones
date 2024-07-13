@@ -656,6 +656,197 @@
 
             La figura muestra un transceptor típico de teléfono celular que consta de varias etapas agregadas a un transceptor de radio FM normal. Esta adición se debe a que un teléfono celular necesita permitir transmisiones dúplex, lo que significa que el transmisor y el receptor deben funcionar simultáneamente. El receptor utiliza una tecnología de doble conversión y un oscilador controlado por voltaje (VCO) para amplificar y detectar la señal de FM. Por otro lado, en el transmisor se aplica directamente una señal moduladora al VCO para generar una señal de FM de baja frecuencia, que luego se amplifica antes de ser transmitida. Además, un microprocesador controla cada bloque funcional del transceptor, determina las frecuencias de salida y monitorea la calidad de la señal recibida. También controla la ganancia del amplificador final de potencia.
         </p>
+
+        <h3>Teléfono Celular Digital</h3>
+        <p>Las empresas telefónicas encaran el problema de una base de clientes que se amplía con rapidez, y al mismo tiempo el espectro asignado de frecuencias permanece sin cambios. Como se
+            describió, la capacidad de usuarios se puede ampliar subdividiendo las células existentes en subcélulas menores (es decir, por división de células) y modificando la distribución de la radiación
+            de las antenas (es decir, por sectorización). Sin embargo, el grado de subdivisión y redireccionamiento está limitado por la complejidad y la cantidad de sobrecarga necesaria para procesar
+            las transferencias de llamada entre células.
+            En consecuencia, se
+            diseñó el sistema Celular Digital de Estados Unidos (USDC, de United States Digital Cellular),
+            que se desarrolló para tratar de sostener una mayor densidad de usuarios dentro de un espectro
+            fijo de frecuencias.
+            El sistema USDC es compatible con el esquema anterior de asignación de frecuencias
+            AMPS, y se diseñó para usar las mismas frecuencias de portadora, el mismo plan de reutilización
+            de frecuencias y las mismas estaciones base.</p>
+        
+        <h3>Canales de control USDC</h3>
+
+        <p>La norma USDC IS-54 especifica los mismos 42 canales de control primarios que los de AMPS,
+            y 42 canales adicionales de control, llamados canales de control secundarios. Así, USDC ofrece
+            el doble de canales de control que AMPS y, en consecuencia, es capaz de proporcionar el doble
+            de la capacidad de tráfico de canales de control dentro de determinada área de mercado. Se permite a las portadoras dedicar los canales de control sólo para uso USDC, porque los usuarios
+            móviles de AMPS no vigilan y no pueden decodificar los nuevos canales secundarios de control.
+            Además, para mantener la compatibilidad con los sistemas actuales AMPS de teléfono celular,
+            los canales de control primarios de sentido directo y sentido inverso, en los sistemas celulares USDC, usan las mismas técnicas de señalización y el mismo esquema de modulación (FSK binaria) que AMPS.</p>
+
+        <h3>Canal de voz digital USDC</h3>
+
+        <p>Al igual que en AMPS, a cada canal de voz USDC se le asigna un ancho de banda de 30 kHz en
+            los enlaces en sentido directo e inverso. Sin embargo, en USDC cada canal de voz puede sostener hasta a tres usuarios móviles al mismo tiempo, mediante un sistema de modulación digital
+            y acceso múltiple por división de tiempo (TDMA) llamado celular digital norteamericano
+            (NADC, de North American Digital Cellular). Cada canal de radiofrecuencia para voz consiste
+            en una trama TDMA de 40 ms, formada por seis ranuras de tiempo con 324 bits cada una, como
+            se ve en la fig. 20-11. Para la tarifa completa de conversación, tres usuarios comparten las seis
+            ranuras de tiempo en espacios iguales.</p>
+
+        <h3>Codificación de voz</h3>
+
+        <p>
+            
+            El diagrama de bloques de un codificador de voz USDC de canal digital
+            de voz. El control de errores de canal para los datos digitalizados de voz usa tres mecanismos
+            para minimizar esos errores: 1) se usa una frecuencia igual a la mitad del código convencional para proteger los bits más vulnerables de la corriente de datos del codificador de voz; 2) los
+            datos transmitidos se intercalan para cada trama de codificador de voz en dos ranuras de tiempo,
+            para reducir los efectos del desvanecimiento de Rayleigh, y 3) se ejecuta una comprobación de
+            redundancia cíclica en los bits más importantes, desde el punto de vista de percepción, de los
+            datos digitalizados de voz.
+        
+            <img class="img" src="/public/img/Codificador de voz USDC de canal digital de voz.png" alt="Codificador de voz USDC de canal digital de voz">
+        </p>
+
+        <h3>Esquema de modulación digital USDC</h3>
+
+        <p>Para lograr una velocidad de transmisión de 48.6 kbps en un canal de voz AMPS de 30 kHz, se
+            requiere una eficiencia de ancho banda (espectral) de 1.62 bps/Hz, bastante lejos de las posibilidades de la FSK binaria. Los requisitos de eficiencia espectral se pueden alcanzar usando
+            esquemas convencionales de modulación de 4 fases, de pulso conformado, como QPSK y OQPSK.
+            Sin embargo, los canales USDC de voz y de control usan una técnica de modulación por conmutación de fase, simétrica diferencial, llamado DQPSK pi/4, o modulación por conmutación
+            cuadrifásica diferencial pi/4 (DQPSK), que ofrece varias ventajas en un ambiente de radio móvil, como mejor rechazo de canal común y mejor eficiencia de ancho de banda.</p>
+
+        <h3>Canal de control digital USDC</h3>
+        <p>El canal de control digital es complejo, por necesidad, y su descripción completa sale del alcance de este libro. En consecuencia, la siguiente descripción pretende ser una perspectiva general
+            del funcionamiento de un canal de control digital USDC.</p>
+        <p>Como se dijo antes, la norma IS-54 especifica tres clases de canales: analógico de control,
+            analógico de voz y un canal de control digital FSK binario de 10 kbps (DCCH, de digital control
+            channel). La norma IS-54 Rev. C (IS-136) menciona las mismas tres clases de canales, y una cuarta: un canal de control digital con una frecuencia de señalización de 48.6 kbps, en los canales de
+            control exclusivos de USDC. El nuevo canal de control digital pretende reemplazar, al final, al canal de control analógico. Al agregar un canal de control digital, una unidad móvil puede funcionar
+            por completo en el dominio digital: usar el canal de control digital para seleccionar sistema y célula, y para entrada a canal, y el canal digital de voz para transmisiones digitalizadas de voz.</p>
+        <p>La IS-136 detalla la funcionalidad exacta del canal USDC de control digital. La versión
+            inicial de la IS-136 fue la versión 0, que de desde entonces se ha actualizado por la revisión A.
+            La versión 0 agregó muchos servicios y funciones nuevos al sistema telefónico celular digital
+            USDC, incluyendo mayores servicios al usuario, como mensajes cortos y presentación del número telefónico de la llamada que entra, modo de reserva, que permite una mayor duración de
+            baterías del aparato telefónico cuando no se use, servicio de sistema privado o residencial y mayor seguridad y validación contra fraudes.</p>
+        <h3>SISTEMA TELEFÓNICO CELULAR DIGITAL DE ACCESO MÚLTIPLE POR DIVISIÓN DE CÓDIGO (IS-95)</h3>
+        <p>El acceso múltiple por división de frecuencia (FDMA) es el método que se usa en AMPS, y en
+            D-AMPS se usa el acceso múltiple tanto por división de frecuencia como por división de tiempo
+            (TDMA). Tanto FDMA como TDMA usan un método de canalización de frecuencia para administrar el espectro, y en TDMA también se usa un método por división de tiempo. En los sistemas
+            telefónicos celulares FDMA y TDMA, todo el espectro disponible de radiofrecuencias celulares
+            se subdivide en canales de radio de banda angosta, para usarse en enlaces de comunicaciones en
+            un sentido, entre las unidades móviles y las estaciones base celulares.</p>
+        <p>Un sistema telefónico celular totalmente digital se puso a disposición recientemente en
+            Estados Unidos, basado en acceso múltiple por división de código (CDMA). Este sistema fue
+            normalizado en fecha reciente por la Asociación Americana de la Industria de las Telecomunicaciones como norma provisional 95 (IS-95). </p>
+        <h3>Acceso múltiple por división de código</h3>
+        <p>En la norma IS-95, cada usuario móvil dentro de determinada célula, y los de células adyacentes, usan los mismos canales de radiofrecuencia. En esencia, en todas las células está disponible
+            la reutilización de frecuencia. Esto es posible porque la IS-95 es un sistema CDMA de secuencia
+            directa y espectro disperso, que no sigue los principios de canalización de los sistemas tradicionales de radiocomunicación celular. En vez de dividir el espectro asignado de frecuencia en
+            canales de banda angosta, uno para cada usuario, la información se transmite (se dispersa) sobre
+            un espectro muy amplio de frecuencias, y con hasta 20 suscriptores usando en forma simultánea
+            la misma frecuencia de portadora y banda de frecuencias. En el sistema se incorpora la interferencia, por lo que no hay límite a la cantidad de suscriptores que puede soportar el CDMA. A
+            medida que se agregan más suscriptores móviles al sistema, hay una graciosa degradación de la
+            calidad de comunicaciones.</p>
+        <p>En CDMA, a diferencia de otras normas de teléfono celular, los datos del suscriptor cambian en tiempo real, dependiendo de la actividad de voz y de los requisitos de la red, y de otros
+            usuarios de la misma. La norma IS-95 también usa técnicas distintas de modulación y de dispersión para los canales de sentido directo e inverso. En el canal de sentido directo, la estación base transmite en forma simultánea datos del usuario, desde todas las unidades móviles que haya
+            en esa célula, usando distintos códigos de secuencia de dispersión para las transmisiones de cada
+            usuario. Un código piloto se transmite con los datos del usuario a mayor nivel de potencia, permitiendo así que todas las unidades móviles usen detección coherente de portadora.</p>
+        <h3>Canales de tráfico CDMA</h3>
+        <p>Los canales de tráfico CDMA consisten en un canal de sentido inverso o enlace descendente (estación base a unidad móvil) y uno de enlace ascendente o de sentido directo (estación móvil a
+            estación base).  El canal de radiodifusión consiste en un
+            canal piloto, un canal de sincronización, hasta siete canales de voceo y hasta 63 canales de tráfico. Todos estos canales comparten la misma asignación de frecuencias CDMA de 1.25 MHz. El
+            canal de tráfico se identifica con una secuencia distinta de código largo, y específica del usuario,
+            y cada canal de acceso se identifica con una secuencia distinta de código largo.
+             </p>
+            <p>El canal piloto está incluido en cada célula, con el fin de proporcionar una señal para que
+                use el receptor en la adquisición de sincronización, y proporcionar una referencia de fase para
+                demodulación coherente. También lo usan las unidades móviles para comparar las intensidades de
+                señal entre estaciones base, y determinar cuándo se debe iniciar una transferencia. El canal
+                de sincronización usa un código Walsh W32, y la misma secuencia pseudoaleatoria y desplazamiento de fase que el canal piloto, permitiéndole ser demodulado por cualquier receptor que
+                pueda adquirir la señal piloto. El canal de sincronización difunde mensajes de sincronización a
+                las unidades móviles y funciona a 1200 bps. Los canales de voceo conducen información de la
+                estación base a la móvil, como por ejemplo, mensajes de parámetro de sistema o de acceso, mensajes de lista de canales CDMA y mensajes de asignación de canal. Los canales de voceo son
+                opcionales, y su cantidad puede ir de 0 a 7.</p>
+        <h3>SISTEMA GLOBAL PARA COMUNICACIONES MÓVILES</h3>
+        <p>A principios de la década de 1980, los sistemas telefónicos celulares analógicos tuvieron un
+            periodo de rápido crecimiento en Europa Occidental, en especial en Escandinavia y en el Reino
+            Unido, y en menor grado en Francia y Alemania. A continuación, cada país desarrolló su propio
+            sistema celular, incompatible con los de los demás, tanto en equipo como en el sistema de operación. La mayoría de los sistemas existentes funcionaba en distintas frecuencias, y todos
+            eran analógicos. En 1982, la Conferencia de Correos y Telégrafos Europeos (CEPT) formó un
+            grupo de estudio, llamado Groupe Spécial Mobile (GSM) para estudiar y desarrollar un sistema
+            telefónico móvil terrestre y público, paneuropeo. En 1989 fue transferida la responsabilidad de
+            la GSM al Instituto Europeo de Normas de Telecomunicación (ETSI, de European Telecommunication Standards Institute) y en 1990 se publicó la fase I de las especificaciones GSM. Éste
+            tuvo la ventaja de haberse diseñado desde cero, sin importar si era compatible con los sistemas
+            telefónicos celulares analógicos existentes.
+            </p>
+            <p>El servicio comercial GSM comenzó en 1991, y para 1993 había 36 redes GSM en 22 países. Hoy, están planeadas o ya funcionan redes GSM en más de 80 países en todo el mundo.
+                América del Norte entró tarde al mercado GSM, con un derivado del sistema llamado PCS 1900.
+                Hoy, existen sistemas GSM en todos los continentes, y el significado actual de GSM es Global
+                System for Mobile Communications, Sistema global de comunicaciones móviles.</p>
+        <h3>Servicios de GSM</h3>
+        <p>La intención original era hacer GSM compatible con ISDN, en términos de servicios ofrecidos
+            y formatos de señalización de control. Desafortunadamente, las limitaciones de ancho de banda
+            de canal y de costo evitan que el GSM funcione a la velocidad básica de datos de 64 kbps de
+            ISDN.
+            </p>
+            <p>Los servicios telefónicos GSM se pueden clasificar en forma amplia en tres categorías:
+                servicios de portador, teleservicios y servicios suplementarios. Es probable que el servicio al
+                portador más básico (teleservicio) que proporciona GSM es el de telefonía. En GSM, las señales analógicas de voz se codifican digitalmente y a continuación se transmiten por la red, como
+                corriente de datos digitales. También hay un servicio de emergencia, en el que se notifica al proveedor más cercano correspondiente marcando tres dígitos, en forma parecida a los servicios del
+                911 en Estados Unidos. Se ofrece una amplia gama de servicios de datos por GSM, donde los
+                usuarios pueden mandar y recibir datos hasta con 9600 bps a suscriptores en las redes POTS
+                (plain old telephone service, servicio telefónico antiguo simple), ISDN, red pública de datos
+                de paquetes conmutados (PSPDN, de Packet Switched Public Data Network), y red pública de
+                datos de circuitos conmutados (CSPDN, de Circuit Switched Public Data Network (CSPDN),
+                mediante diversos métodos y protocolos de acceso, como X.25. También, como la GSM es una
+                red digital, no se requiere módem entre el usuario y esa red.</p>
+        <h3>Arquitectura del sistema GSM</h3>
+        <p>La arquitectura del sistema GSM, mostrada en la fig. 20-18, consiste en tres subsistemas principales interconectados, que interaccionan entre sí y con los suscriptores a través de interfaces
+            especificadas de red. Los tres subsistemas principales del GSM son subsistema de estación base(BSS, de Base Station Subsystem), subsistema de red y conmutación (NSS, de Network and
+            Switching Subsystem) y subsistema de soporte operacional (OSS, de Operational Support
+            Subsystem). Aunque la estación móvil es, técnicamente, otro subsistema, en general se le considera como parte del subsistema de estación base.
+            A veces se conoce al BSS como el subsistema de radio, porque proporciona y administra
+            rutas de transmisión en radiofrecuencia entre las unidades móviles y el centro móvil de conmutación (MSC, de mobile switching center). 
+        
+            <img class="img" src="/public/img/Arquitectura del sistema GSM.png" alt="Arquitectura del sistema GSM">
+        </p>
+        <h3>Subsistema de radio GSM</h3>
+        <p>El sistema GSM fue desarrollado en forma original para 200 canales dúplex por célula, con frecuencias de transmisión en la banda de 900 MHz; sin embargo, después se asignaron frecuencias
+            en los 1800 MHz. Se estableció un segundo sistema, llamado DSC 1800, que se parece mucho
+            al GSM. En éste se usan dos bandas de frecuencias de 25 MHz que se han apartado para uso
+            del sistema en todas las empresas miembros. La banda de 890 a 915 MHz se usa para transmisiones de unidad móvil a estación base (transmisiones de enlace en sentido inverso), y la banda de frecuencias de 935 a 960 MHz se usa para transmisión de estación base a unidad móvil
+            (transmisiones de enlace en sentido directo).</p>
+        <h3>SISTEMA SATELITAL DE COMUNICACIONES PERSONALES</h3>
+        <p>Los sistemas satelitales móviles (MSS, de Mobile Satellite Systems) son el vehículo de una nueva
+            generación de servicios telefónicos inalámbricos, llamados sistemas satelitales de comunicaciones
+            personales (PCSS, de personal communications satellite systems). La cobertura universal de telefonía inalámbrica es un servicio MSS en desarrollo, que promete proporcionar a los suscriptores
+            móviles las funciones tradicionales y aumentadas, y al mismo tiempo tener una cobertura global.
+            En esencia, los satélites MSS son radiorrepetidoras en el cielo, y su utilidad en comunicaciones móviles depende de varios factores, como la altura, características orbitales, potencia
+            de transmisión, sensibilidad del receptor, técnica de modulación, patrón de radiación de antena
+            (es decir, las huellas) y varios otros factores del satélite.</p>
+        <h3>Mercado proyectado del PCSS</h3>
+        <p>Las encuestas industriales indican que para que tenga éxito un sistema PCSS debe proporcionar
+            cobertura tanto regional como global, ya que la mayoría de sus suscriptores sólo desea usar
+            un sistema al viajar por países o regiones con sistemas operativos no compatibles. Además, los
+            suscriptores de teléfonos PCSS desean un servicio de 24 horas por día, casi en cualquier lugar,
+            incluyendo áreas metropolitanas de gran densidad, áreas rurales, aisladas, subterráneas, vías
+            acuáticas, carreteras, aeropuertos, regiones despobladas, remotas o vírgenes, de combate, y donde
+            haya servicios limitados o no haya servicios de una compañía telefónica pública. </p>
+        <h3>Requisitos de la industria del PCSS</h3>
+        <p>Los sistemas telefónicos móviles PCSS requieren interfaces y conjuntos de propiedades transparentes, con la multitud de redes terrestres que hoy proporcionan servicios telefónicos de cable y móviles. Además, las interfaces deben ser capaces de funcionar con las restricciones de red
+            ANSI y CCITT, y poder proporcionar capacidad de interpretación con los sistemas telefónicos
+            celulares AMPS, E-TACS, USDC, GSM y PCS. También, el sistema PCSS debe ser capaz de funcionar en modo dual, con protocolos de acceso en aire como FDMA, TDMA o CDMA. Además
+            debe proporcionar conjuntos exclusivos de propiedades y características MSS, como transferencias entre o intra satélites, transferencias de cable a satélite y registro dual de base terrestre a
+            PCSS.</p>
+        <h3>Ventajas y desventajas del PCSS</h3>
+        <p>La ventaja principal y posiblemente la más obvia del teléfono móvil PCSS es que proporciona
+            cobertura de teléfono móvil y un conjunto de otros servicios integrados, virtualmente en todo el
+            mundo, a una base de clientes verdaderamente global. El PCSS puede llenar los vacíos entre los
+            sistemas telefónicos celulares terrestres y PCS, y proporcionar una cobertura de área amplia, en
+            base regional o global.
+            El PCSS se adapta en forma ideal para aplicaciones telefónicas celulares fijas, porque
+            puede proporcionar un complemento completo de servicios telefónicos a lugares donde nunca
+            podrá haber cables, por restricciones económicas, técnicas o físicas. También puede proporcionar servicios telefónicos complementarios y de respaldo a grandes empresas y organizaciones
+            con muchas operaciones en distintos lugares, como de ventas al menudeo, manufactura, finanzas, transportes, oficiales, militares y de seguros</p>
+
     </section>
 </div>
 
